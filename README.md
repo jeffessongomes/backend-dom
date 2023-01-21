@@ -19,10 +19,10 @@ Autenticação : Não é necessário
 
 Parâmetros :
 
-providerName (string, obrigatório) - Nome do provider
-hour (date, opcional) - Hora de criação
-idNotes (string, opcional) - Id das notas
-idWorkDay (string, opcional) - Id do dia de trabalho
+providerName (string, obrigatório) - Nome do provider  
+hour (date, opcional) - Hora de criação  
+idNotes (string, opcional) - Id das notas 
+idWorkDay (string, opcional) - Id do dia de trabalho  
 quantity (string, opcional) - Quantidade
 isConfirmedByHeritage (boolean, opcional) - Confirmado pela herança
 isConfirmedByCPD (boolean, opcional) - Confirmado pela CPD
