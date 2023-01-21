@@ -23,16 +23,16 @@ providerName (string, obrigatório) - Nome do provider
 hour (date, opcional) - Hora de criação  
 idNotes (string, opcional) - Id das notas 
 idWorkDay (string, opcional) - Id do dia de trabalho  
-quantity (string, opcional) - Quantidade  
-isConfirmedByHeritage (boolean, opcional) - Confirmado pela herança. 
-isConfirmedByCPD (boolean, opcional) - Confirmado pela CPD. 
-isConfirmedByArbitrator (boolean, opcional) - Confirmado pelo árbitro. 
-loadType (string, opcional) - Tipo de carga. 
-volumeType (string, opcional) - Tipo de volume. 
-isChecked (boolean, opcional) - Verificado. 
-isReturned (boolean, opcional) - Devolvido. 
-isSchedule (boolean, opcional) - Agendado. 
-idDriver (string, opcional) - Id do motorista. 
+quantity (string, opcional) - Quantidade   
+isConfirmedByHeritage (boolean, opcional) - Confirmado pela herança.  
+isConfirmedByCPD (boolean, opcional) - Confirmado pela CPD.  
+isConfirmedByArbitrator (boolean, opcional) - Confirmado pelo árbitro.  
+loadType (string, opcional) - Tipo de carga.  
+volumeType (string, opcional) - Tipo de volume.  
+isChecked (boolean, opcional) - Verificado.  
+isReturned (boolean, opcional) - Devolvido.  
+isSchedule (boolean, opcional) - Agendado.  
+idDriver (string, opcional) - Id do motorista.  
 Retorno :  
 
 message (string) - Mensagem de sucesso. 
