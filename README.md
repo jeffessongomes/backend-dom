@@ -10,7 +10,7 @@ DELETE /providers/:id: Essa rota é responsável por deletar um provider especí
 
 
 <h1>Documentação de Rotas</h1>
-Criar Provider
+<h3>Criar Provider</h3>
 URL : /providers
 
 Método : POST
@@ -23,34 +23,17 @@ providerName (string, obrigatório) - Nome do provider
 hour (date, opcional) - Hora de criação  
 idNotes (string, opcional) - Id das notas 
 idWorkDay (string, opcional) - Id do dia de trabalho  
-quantity (string, opcional) - Quantidade
-isConfirmedByHeritage (boolean, opcional) - Confirmado pela herança
-isConfirmedByCPD (boolean, opcional) - Confirmado pela CPD
-isConfirmedByArbitrator (boolean, opcional) - Confirmado pelo árbitro
-loadType (string, opcional) - Tipo de carga
-volumeType (string, opcional) - Tipo de volume
-isChecked (boolean, opcional) - Verificado
-isReturned (boolean, opcional) - Devolvido
-isSchedule (boolean, opcional) - Agendado
-idDriver (string, opcional) - Id do motorista
-Retorno :
+quantity (string, opcional) - Quantidade  
+isConfirmedByHeritage (boolean, opcional) - Confirmado pela herança. 
+isConfirmedByCPD (boolean, opcional) - Confirmado pela CPD. 
+isConfirmedByArbitrator (boolean, opcional) - Confirmado pelo árbitro. 
+loadType (string, opcional) - Tipo de carga. 
+volumeType (string, opcional) - Tipo de volume. 
+isChecked (boolean, opcional) - Verificado. 
+isReturned (boolean, opcional) - Devolvido. 
+isSchedule (boolean, opcional) - Agendado. 
+idDriver (string, opcional) - Id do motorista. 
+Retorno :  
 
-message (string) - Mensagem de sucesso
-provider (object) - Provider criado
-Exemplo de uso:
-
-Copy code
-fetch("/providers", {
-  method: "POST",
-  body: JSON.stringify({
-    providerName: "Provider Teste",
-    hour: "2022-11-20T10:00:00.000Z",
-    idNotes: "123",
-    isConfirmedByHeritage: true
-  }),
-  headers: {
-    "Content-type": "application/json; charset=UTF-8"
-  }
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+message (string) - Mensagem de sucesso. 
+provider (object) - Provider criado. 
