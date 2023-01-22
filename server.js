@@ -1,9 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import {db} from './services/db';
-import routes from './routes/providers/routes';
+import providers from './routes/providers/routes';
+import workDays from './routes/workDays/routes';
+
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -14,7 +18,8 @@ db.authenticate()
 // Inicia a conexão com o banco de dados
 
 // Adiciona as rotas
-app.use("/", routes);
+app.use("/", providers);
+app.use("/workDays", workDays);
 
 // Inicia o servidor
 const port = process.env.PORT || 3333;

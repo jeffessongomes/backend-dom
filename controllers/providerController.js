@@ -1,5 +1,7 @@
 import {Provider} from "../models/provider";
 
+Provider.sync();
+
 export const getAllProviders = async (req, res) => {
   try {
     const providers = await Provider.findAll();

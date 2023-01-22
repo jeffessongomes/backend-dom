@@ -1,5 +1,6 @@
 import {Sequelize} from "sequelize";
 import {db} from "../services/db";
+import { WorkDay } from "./workDay";
 
 export const Provider = db.define("provider", {
   id: {
