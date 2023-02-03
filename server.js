@@ -4,6 +4,7 @@ import cors from 'cors';
 import {db} from './services/db';
 import providers from './routes/providers/routes';
 import workDays from './routes/workDays/routes';
+import notes from './routes/notes/routes';
 
 
 const app = express();
@@ -19,7 +20,9 @@ db.authenticate()
 
 // Adiciona as rotas
 app.use("/", providers);
-app.use("/workDays", workDays);
+// app.use("/workDays", workDays);
+// app.use("/notes", notes);
+
 
 // Inicia o servidor
 const port = process.env.PORT || 3333;

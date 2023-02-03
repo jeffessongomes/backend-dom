@@ -1,60 +1,59 @@
-import {Provider} from "../models/provider";
+import { Sequelize } from "sequelize";
+import { Notes } from "../models/notes";
+import { Provider as ProviderClass} from "../models/provider";
 
-Provider.sync();
+const Provider = new ProviderClass(Sequelize);
 
-export const getAllProviders = async (req, res) => {
+export async function createProvider(providerData) {
   try {
-    const providers = await Provider.findAll();
-    res.send(providers);
-  } catch (err) {
-    res.status(500).send("Erro ao buscar providers");
+    const provider = await Provider.create(providerData);
+    return provider;
+  } catch (error) {
+    throw error;
   }
-};
+}
 
-export const getProvider = async (req, res) => {
+export async function getAllProviders() {
   try {
-    const { id } = req.params;
-    const provider = await Provider.findByPk(id);
-    if (!provider) res.status(404).send("Provider não encontrado");
-    else res.send(provider);
-  } catch (err) {
-    res.status(500).send("Erro ao buscar provider");
+    const providers = await Provider.findAll({ include: [Notes] });
+    return providers;
+  } catch (error) {
+    throw error;
   }
-};
+}
 
-export const createProvider = async (req, res) => {
+export async function getProviderById(id) {
   try {
-    const provider = await Provider.create(req.body);
-    res.status(201).send(provider);
-  } catch (err) {
-    res.status(500).send("Erro ao criar provider");
+    const provider = await Provider.findByPk(id, { include: [Notes] });
+    return provider;
+  } catch (error) {
+    throw error;
   }
-};
+}
 
-export const updateProvider = async (req, res) => {
+export async function updateProvider(id, providerData) {
   try {
-    const { id } = req.params;
-    const provider = await Provider.findByPk(id);
-    if (!provider) res.status(404).send("Provider não encontrado");
-    else {
-      await provider.update(req.body);
-      res.send({ message: "Provider atualizado com sucesso" });
+    const [updated] = await Provider.update(providerData, {
+      where: { id: id },
+      returning: true,
+    });
+    if (updated) {
+      const updatedProvider = await Provider.findByPk(id);
+      return updatedProvider;
     }
-  } catch (err) {
-    res.status(500).send("Erro ao atualizar provider");
+    return null;
+  } catch (error) {
+    throw error;
   }
-};
+}
 
-export const deleteProvider = async (req, res) => {
+export async function deleteProvider(id) {
   try {
-    const { id } = req.params;
-    const provider = await Provider.findByPk(id);
-    if (!provider) res.status(404).send("Provider não encontrado");
-    else {
-      await provider.destroy();
-      res.send({ message: "Provider deletado com sucesso" });
-    }
-  } catch (err) {
-    res.status(500).send("Erro ao deletar provider");
+    const deleted = await Provider.destroy({
+      where: { id: id },
+    });
+    return deleted;
+  } catch (error) {
+    throw error;
   }
-};
+}
